@@ -1,0 +1,76 @@
+﻿<Window x:Class="CalibrateThrottleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        d:DesignHeight="1024"
+        d:DesignWidth="1280"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        Title="Calibrating Throttle"
+        WindowState="Maximized">
+    <Window.Resources>
+        <sys:String x:Key="CalibrateMinimumInstruction">Pull throttle lever back until it stops</sys:String>
+        <sys:String x:Key="CalibrateMaximumInstruction">Push throttle lever forward until it stops</sys:String>
+        <ImageBrush x:Key="ThrottleMinimumImage"
+                    ImageSource="/DriverDisplay;component/Resources/Images/ThrottleMinimum.JPG"
+                    Stretch="Fill"
+                    TileMode="None" />
+        <ImageBrush x:Key="ThrottleMaximumImage"
+                    ImageSource="/DriverDisplay;component/Resources/Images/ThrottleMaximum.JPG"
+                    Stretch="Fill"
+                    TileMode="None" />
+    </Window.Resources>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Background"
+                    Value="{StaticResource ThrottleMinimumImage}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsCalibratingMaximum}"
+                             Value="True">
+                    <Setter Property="Background"
+                            Value="{StaticResource ThrottleMaximumImage}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,200,0">
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="Blue"
+                       FontSize="72"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       FontWeight="Bold">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Text"
+                                Value="{StaticResource CalibrateMinimumInstruction}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsCalibratingMaximum}"
+                                         Value="True">
+                                <Setter Property="Text"
+                                        Value="{StaticResource CalibrateMaximumInstruction}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Button Margin="50"
+                    Content="Click To Continue"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontWeight="Bold"
+                    Command="{Binding Path=CalibrateCurrentPositionCommand}"
+                    FontSize="72"
+                    Background="Red"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

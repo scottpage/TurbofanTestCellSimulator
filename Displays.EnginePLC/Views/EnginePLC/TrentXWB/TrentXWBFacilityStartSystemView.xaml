@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="TrentXWBFacilityStartSystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays"
+             mc:Ignorable="d" 
+             d:DesignHeight="458" d:DesignWidth="300">
+    <local:PLCDisplaySection
+        Header="TEST FACILITY START SYSTEM">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="0.45*" />
+                <RowDefinition
+                    Height="0.55*" />
+            </Grid.RowDefinitions>
+            <UniformGrid
+                Grid.Row="0"
+                Rows="1"
+                Columns="2">
+                <local:StartSelectorStateStatusButton
+                    TopStatusText="IGNITION"
+                    BottomStatusText="POWER"
+                    StatusLabelBackgroundGridColor="#FFFFFF80"
+                    Margin="5"
+                    State="{Binding Path=IgnitionState}"
+                    Command="{Binding Path=ToggleIgnitorsCommand}" />
+                <local:TwoStateStatusButton
+                    Margin="5"
+                    TopStatusText="START"
+                    BottomStatusText="MASTER"
+                    ButtonBottomText="OFF"
+                    ButtonTopText="ON"
+                    State="{Binding Path=IsStartMasterOn, UpdateSourceTrigger=PropertyChanged}"
+                    Command="{Binding Path=ToggleStartMasterCommand}">
+                    <local:TwoStateStatusButton.Style>
+                        <Style
+                            TargetType="{x:Type local:TwoStateStatusButton}">
+                            <Setter
+                                Property="StatusLabelBackgroundBrush"
+                                Value="{x:Null}" />
+                            <Style.Triggers>
+                                <Trigger
+                                    Property="State"
+                                    Value="True">
+                                    <Setter
+                                        Property="StatusLabelBackgroundBrush"
+                                        Value="#FFFFFF80" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </local:TwoStateStatusButton.Style>
+                </local:TwoStateStatusButton>
+            </UniformGrid>
+            <UniformGrid
+                Grid.Row="1"
+                Rows="3"
+                Columns="1">
+                <local:HeaderedTwoStateView
+                    Margin="5"
+                    StateOneSelectedBackground="Red"
+                    StateTwoSelectedBackground="Green"
+                    StateOneText="CLOSED"
+                    StateTwoText="OPEN"
+                    Header="ENGINE START AIR VALVE"
+                    State="{Binding Path=IsStartAirValveOpened}"
+                    StateOneBackground="Red" />
+                <local:HeaderedTwoStateView
+                    Margin="5"
+                    StateOneSelectedBackground="Green"
+                    StateTwoSelectedBackground="Red"
+                    StateOneText="NOT COMMANDED"
+                    StateTwoText="COMMANDED"
+                    Header="IGNITION SYSTEM #1"
+                    State="{Binding Path=IsIgnitionSystem1Commanded}" />
+                <local:HeaderedTwoStateView
+                    Margin="5"
+                    StateOneSelectedBackground="Green"
+                    StateTwoSelectedBackground="Red"
+                    StateOneText="NOT COMMANDED"
+                    StateTwoText="COMMANDED"
+                    Header="IGNITION SYSTEM #2"
+                    State="{Binding Path=IsIgnitionSystem2Commanded}" />
+            </UniformGrid>
+        </Grid>
+    </local:PLCDisplaySection>
+</UserControl>

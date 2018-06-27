@@ -1,0 +1,242 @@
+﻿<UserControl x:Class="VerticalLinearGauge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <local:ValueSizeConverter
+                x:Key="ValueSizeConverter" />
+            <local:AlarmSizeConverter
+                x:Key="AlarmSizeConverter" />
+            <local:AlarmColorConverter
+                x:Key="AlarmColorConverter" />
+            <local:NumericScaleConverter
+                x:Key="NumericScaleConverter" />
+            <local:LineScaleConverter
+                x:Key="LineScaleConverter" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="0.4167*" />
+            <ColumnDefinition
+                Width="0.1*" />
+            <ColumnDefinition
+                Width="0.1667*" />
+            <ColumnDefinition
+                Width="0.4167*" />
+        </Grid.ColumnDefinitions>
+        <Rectangle
+            Grid.Column="3"
+            Fill="Black" />
+        <Rectangle
+            Grid.Column="3"
+            VerticalAlignment="Bottom">
+            <Rectangle.Height>
+                <MultiBinding
+                    Converter="{StaticResource ValueSizeConverter}">
+                    <Binding
+                        Path="Average" />
+                    <Binding
+                        Path="Minimum" />
+                    <Binding
+                        Path="Maximum" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                        Path="ActualHeight" />
+                </MultiBinding>
+            </Rectangle.Height>
+            <Rectangle.Fill>
+                <MultiBinding
+                    Converter="{StaticResource AlarmColorConverter}">
+                    <Binding
+                        Path="Average" />
+                    <Binding
+                        Path="LowCriticalAlarmLimit" />
+                    <Binding
+                        Path="LowAlarmLimit" />
+                    <Binding
+                        Path="HighAlarmLimit" />
+                    <Binding
+                        Path="HighCriticalAlarmLimit" />
+                </MultiBinding>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid
+            Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="0.2*" />
+                <ColumnDefinition
+                    Width="0.8*" />
+            </Grid.ColumnDefinitions>
+            <Rectangle
+                Grid.Column="1"
+                x:Name="NoAlarmRectangle"
+                Fill="Lime" />
+            <Rectangle
+                Grid.Column="1"
+                VerticalAlignment="Bottom"
+                Fill="Yellow">
+                <Rectangle.Height>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}">
+                        <Binding
+                            Path="LowAlarmLimit" />
+                        <Binding
+                            Path="Minimum" />
+                        <Binding
+                            Path="Maximum" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                            Path="ActualHeight" />
+                    </MultiBinding>
+                </Rectangle.Height>
+            </Rectangle>
+            <Rectangle
+                Grid.Column="1"
+                VerticalAlignment="Bottom"
+                Fill="Red">
+                <Rectangle.Height>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}">
+                        <Binding
+                            Path="LowCriticalAlarmLimit" />
+                        <Binding
+                            Path="Minimum" />
+                        <Binding
+                            Path="Maximum" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                            Path="ActualHeight" />
+                    </MultiBinding>
+                </Rectangle.Height>
+            </Rectangle>
+            <Rectangle
+                Grid.Column="1"
+                VerticalAlignment="Top"
+                Fill="Yellow">
+                <Rectangle.Height>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}"
+                        ConverterParameter="True">
+                        <Binding
+                            Path="HighAlarmLimit" />
+                        <Binding
+                            Path="Minimum" />
+                        <Binding
+                            Path="Maximum" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                            Path="ActualHeight" />
+                    </MultiBinding>
+                </Rectangle.Height>
+            </Rectangle>
+            <Rectangle
+                Grid.Column="1"
+                VerticalAlignment="Top"
+                Fill="Red">
+                <Rectangle.Height>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}"
+                        ConverterParameter="True">
+                        <Binding
+                            Path="HighCriticalAlarmLimit" />
+                        <Binding
+                            Path="Minimum" />
+                        <Binding
+                            Path="Maximum" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                            Path="ActualHeight" />
+                    </MultiBinding>
+                </Rectangle.Height>
+            </Rectangle>
+            <ItemsControl
+                Grid.ColumnSpan="2"
+                VerticalAlignment="Stretch"
+                x:Name="MinorLinesGrid">
+                <ItemsControl.ItemsSource>
+                    <MultiBinding
+                        Converter="{StaticResource LineScaleConverter}"
+                        ConverterParameter="True">
+                        <Binding
+                            Path="Minimum" />
+                        <Binding
+                            Path="Maximum" />
+                        <Binding
+                            ElementName="MinorLinesGrid"
+                            Path="ActualWidth" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                            Path="NumberOfMinorGridLines" />
+                    </MultiBinding>
+                </ItemsControl.ItemsSource>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid
+                            Columns="1"
+                            Rows="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}, Path=NumberOfMinorGridLines}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
+        <ItemsControl
+            Grid.Column="1"
+            VerticalAlignment="Stretch"
+            x:Name="MajorLinesGrid">
+            <ItemsControl.ItemsSource>
+                <MultiBinding
+                    Converter="{StaticResource LineScaleConverter}"
+                    ConverterParameter="True">
+                    <Binding
+                        Path="Minimum" />
+                    <Binding
+                        Path="Maximum" />
+                    <Binding
+                        ElementName="MajorLinesGrid"
+                        Path="ActualWidth" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                        Path="NumberOfMajorGridLines" />
+                </MultiBinding>
+            </ItemsControl.ItemsSource>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid
+                        Columns="1"
+                        Rows="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}, Path=NumberOfMajorGridLines}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <ItemsControl
+            Name="NumberScale"
+            Grid.Column="0"
+            VerticalAlignment="Stretch">
+            <ItemsControl.ItemsSource>
+                <MultiBinding
+                    Converter="{StaticResource NumericScaleConverter}"
+                    ConverterParameter="True">
+                    <Binding
+                        Path="Minimum" />
+                    <Binding
+                        Path="Maximum" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}"
+                        Path="NumberOfMajorGridLines" />
+                </MultiBinding>
+            </ItemsControl.ItemsSource>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid
+                        Name="NumberScaleGrid"
+                        Columns="1"
+                        Rows="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:VerticalLinearGauge, AncestorLevel=1}, Path=NumberOfMajorGridLines}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,267 @@
+﻿<UserControl
+    x:Class="HorizontalLinearGauge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework"
+    mc:Ignorable="d"
+    d:DesignHeight="58"
+    d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <local:ValueSizeConverter
+                x:Key="ValueSizeConverter" />
+            <local:AlarmSizeConverter
+                x:Key="AlarmSizeConverter" />
+            <local:AlarmColorConverter
+                x:Key="AlarmColorConverter" />
+            <local:NumericScaleConverter
+                x:Key="NumericScaleConverter" />
+            <local:LineScaleConverter
+                x:Key="LineScaleConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="0.36*" />
+            <RowDefinition
+                Height="0.24*" />
+            <RowDefinition
+                Height="0.10*" />
+            <RowDefinition
+                Height="0.30*" />
+        </Grid.RowDefinitions>
+        <Rectangle
+            x:Name="NoValueRectangle"
+            Grid.Row="0"
+            Fill="Black" />
+        <Rectangle
+            x:Name="ValueRectangle"
+            Grid.Row="0"
+            HorizontalAlignment="Left">
+            <Rectangle.Width>
+                <MultiBinding
+                    Converter="{StaticResource ValueSizeConverter}">
+                    <Binding
+                        Path="Average"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="Minimum"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="Maximum"
+                        Mode="OneWay" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                        Path="ActualWidth" />
+                </MultiBinding>
+            </Rectangle.Width>
+            <Rectangle.Fill>
+                <MultiBinding
+                    Converter="{StaticResource AlarmColorConverter}">
+                    <Binding
+                        Path="Average"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="LowCriticalAlarmLimit"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="LowAlarmLimit"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="HighAlarmLimit"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="HighCriticalAlarmLimit"
+                        Mode="OneWay" />
+                </MultiBinding>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid x:Name="AlarmsGrid"
+            Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="0.8*" />
+                <RowDefinition
+                    Height="0.2*" />
+            </Grid.RowDefinitions>
+            <Rectangle x:Name="NoAlarmRectangle"
+            Grid.Row="0"
+            Fill="Lime" />
+            <Rectangle
+                x:Name="LowWarningAlarmRectangle"
+                HorizontalAlignment="Left"
+                Fill="Yellow">
+                <Rectangle.Width>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}">
+                        <Binding
+                            Path="LowAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Minimum"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Maximum"
+                            Mode="OneWay" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                            Path="ActualWidth" />
+                    </MultiBinding>
+                </Rectangle.Width>
+            </Rectangle>
+            <Rectangle
+                x:Name="LowCriticalAlarmRectangle"
+                HorizontalAlignment="Left"
+                Fill="Red">
+                <Rectangle.Width>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}">
+                        <Binding
+                            Path="LowCriticalAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Minimum"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Maximum"
+                            Mode="OneWay" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                            Path="ActualWidth" />
+                    </MultiBinding>
+                </Rectangle.Width>
+            </Rectangle>
+            <Rectangle
+                x:Name="HighWarningAlarmRectangle"
+                HorizontalAlignment="Right"
+                Fill="Yellow">
+                <Rectangle.Width>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}"
+                        ConverterParameter="True">
+                        <Binding
+                            Path="HighAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Minimum"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Maximum"
+                            Mode="OneWay" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                            Path="ActualWidth" />
+                    </MultiBinding>
+                </Rectangle.Width>
+            </Rectangle>
+            <Rectangle
+                x:Name="HighCriticalAlarmRectangle"
+                HorizontalAlignment="Right"
+                Fill="Red">
+                <Rectangle.Width>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmSizeConverter}"
+                        ConverterParameter="True">
+                        <Binding
+                            Path="HighCriticalAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Minimum"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Maximum"
+                            Mode="OneWay" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                            Path="ActualWidth" />
+                    </MultiBinding>
+                </Rectangle.Width>
+            </Rectangle>
+            <ItemsControl
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                HorizontalAlignment="Stretch"
+                x:Name="MinorLinesGrid">
+                <ItemsControl.ItemsSource>
+                    <MultiBinding
+                        Converter="{StaticResource LineScaleConverter}">
+                        <Binding
+                            Path="Minimum"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="Maximum"
+                            Mode="OneWay" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                            Path="ActualHeight" />
+                        <Binding
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                            Path="NumberOfMinorGridLines" />
+                    </MultiBinding>
+                </ItemsControl.ItemsSource>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid
+                            Rows="1"
+                            Columns="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}, Path=NumberOfMinorGridLines}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
+        <ItemsControl
+            Grid.Row="2"
+            HorizontalAlignment="Stretch"
+            x:Name="MajorLinesGrid">
+            <ItemsControl.ItemsSource>
+                <MultiBinding
+                    Converter="{StaticResource LineScaleConverter}">
+                    <Binding
+                        Path="Minimum"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="Maximum"
+                        Mode="OneWay" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                        Path="ActualHeight" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                        Path="NumberOfMajorGridLines" />
+                </MultiBinding>
+            </ItemsControl.ItemsSource>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid
+                        Rows="1"
+                        Columns="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}, Path=NumberOfMajorGridLines}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <ItemsControl x:Name="MajorGridLineNumbers"
+            Grid.Row="3"
+            HorizontalAlignment="Stretch">
+            <ItemsControl.ItemsSource>
+                <MultiBinding
+                    Converter="{StaticResource NumericScaleConverter}">
+                    <Binding
+                        Path="Minimum"
+                        Mode="OneWay" />
+                    <Binding
+                        Path="Maximum"
+                        Mode="OneWay" />
+                    <Binding
+                        RelativeSource="{RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}"
+                        Path="NumberOfMajorGridLines" />
+                </MultiBinding>
+            </ItemsControl.ItemsSource>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid
+                        Rows="1"
+                        Columns="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:HorizontalLinearGauge, AncestorLevel=1}, Path=NumberOfMajorGridLines}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UnifiedEventLogService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="service_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ScottPage.RollsRoyce.TestCellSimulator.Displays.Services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUnifiedEventLogService_LogEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogEntry" />
+  </wsdl:message>
+  <wsdl:portType name="IUnifiedEventLogService">
+    <wsdl:operation name="LogEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUnifiedEventLogService/LogEntry" message="tns:IUnifiedEventLogService_LogEntry_InputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="service" type="tns:IUnifiedEventLogService">
+    <wsp:PolicyReference URI="#service_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/udp" />
+    <wsdl:operation name="LogEntry">
+      <soap12:operation soapAction="http://tempuri.org/IUnifiedEventLogService/LogEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UnifiedEventLogService">
+    <wsdl:port name="service" binding="tns:service">
+      <soap12:address location="soap.udp://224.0.0.1:10002/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>soap.udp://224.0.0.1:10002/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

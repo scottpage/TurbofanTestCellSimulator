@@ -1,0 +1,101 @@
+﻿<UserControl
+    x:Class="VerticalParameterGauge"
+    x:Name="VerticalParameterGauge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework"
+    mc:Ignorable="d"
+    d:DesignHeight="468"
+    d:DesignWidth="262">
+    <UserControl.Resources>
+        <local:AlarmColorConverter
+            x:Key="AlarmColorConverter" />
+        <local:NumberToFormattedStringConverter
+            x:Key="NumberToFormattedStringConverter" />
+    </UserControl.Resources>
+    <Grid
+        Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="0.6*" />
+            <RowDefinition
+                Height="0.1*" />
+            <RowDefinition
+                Height="0.2*" />
+            <RowDefinition
+                Height="0.1*" />
+        </Grid.RowDefinitions>
+        <Viewbox
+            Name="NameViewBox"
+            Grid.Row="1">
+            <TextBlock
+                Name="NameLabel"
+                Padding="7"
+                Text="{Binding Path=Name}"
+                Foreground="White" />
+        </Viewbox>
+        <Viewbox
+            Name="ValueViewBox"
+            Grid.Row="2"
+            Margin="10"
+            Stretch="Fill">
+            <TextBlock
+                Padding="7"
+                Name="ValueLabel"
+                Background="Black">
+                <TextBlock.Text>
+                        <MultiBinding
+                        Converter="{StaticResource NumberToFormattedStringConverter}">
+                            <Binding
+                            Path="Average" />
+                            <Binding
+                            Path="DecimalPlaces"
+                            RelativeSource="{RelativeSource FindAncestor, AncestorType=local:VerticalParameterGauge, AncestorLevel=1}" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                <TextBlock.Foreground>
+                    <MultiBinding
+                        Converter="{StaticResource AlarmColorConverter}">
+                        <Binding
+                            Path="Average"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="LowCriticalAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="LowAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="HighAlarmLimit"
+                            Mode="OneWay" />
+                        <Binding
+                            Path="HighCriticalAlarmLimit"
+                            Mode="OneWay" />
+                        </MultiBinding>
+                    </TextBlock.Foreground></TextBlock>
+        </Viewbox>
+        <Line
+            Grid.Row="2"
+            StrokeThickness="5"
+            VerticalAlignment="Bottom"
+            Margin="{Binding ElementName=ValueViewBox, Path=Margin}"
+            Stroke="White" />
+        <Viewbox
+            Name="EngineeringUnitViewBox"
+            Grid.Row="3">
+            <TextBlock
+                Padding="7"
+                Name="EngineeringUnitLabel"
+                Text="{Binding Path=EngineeringUnits}"
+                Foreground="White" />
+        </Viewbox>
+        <local:VerticalLinearGauge
+            x:Name="LinearGauge"
+            Grid.Row="0"
+            Margin="5"
+            DataContext="{Binding}"
+            NumberOfMinorGridLines="25" />
+    </Grid>
+</UserControl>

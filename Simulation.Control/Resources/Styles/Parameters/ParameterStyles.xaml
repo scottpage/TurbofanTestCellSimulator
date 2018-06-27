@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Simulation.Models;assembly=Simulation.Models">
+    <Style x:Key="ParameterQualityForegroundStyle"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="Lime" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=Value.Quality}" Value="{x:Static model:Quality.Suspect}">
+                <Setter Property="Foreground"
+                        Value="Yellow" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Value.Quality}" Value="{x:Static model:Quality.Bad}">
+                <Setter Property="Foreground"
+                        Value="Red" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

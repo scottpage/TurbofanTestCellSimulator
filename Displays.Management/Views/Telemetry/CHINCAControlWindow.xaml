@@ -1,0 +1,19 @@
+﻿<Window
+    x:Class="CHINCAControlWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.ManagementDisplay"
+    xmlns:ui="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework;assembly=ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework"
+    ui:RealTimeDisplayBanner.DisplayName="CHINCA"
+    ui:RealTimeDisplayBanner.IsBannerVisible="True"
+    Title="CHINCA Control"
+    mc:Ignorable="d"
+    d:DesignWidth="822"
+    Background="{Binding Source={StaticResource proDASScreenBackgroundColor}}"
+    Height="700">
+    <Grid>
+        <local:TelemetryDeviceListView />
+    </Grid>
+</Window>

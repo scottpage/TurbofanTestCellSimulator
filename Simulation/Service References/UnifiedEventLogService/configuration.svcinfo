@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.UdpBindingElement, System.ServiceModel.Channels, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;service1&quot; /&gt;" bindingType="udpBinding" name="service1" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;soap.udp://224.0.0.1:10002/&quot; binding=&quot;udpBinding&quot; bindingConfiguration=&quot;service1&quot; contract=&quot;UnifiedEventLogService.IUnifiedEventLogService&quot; name=&quot;service2&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;soap.udp://224.0.0.1:10002/&quot; binding=&quot;udpBinding&quot; bindingConfiguration=&quot;service1&quot; contract=&quot;UnifiedEventLogService.IUnifiedEventLogService&quot; name=&quot;service2&quot; /&gt;" contractName="UnifiedEventLogService.IUnifiedEventLogService" name="service2" />
+  </endpoints>
+</configurationSnapshot>

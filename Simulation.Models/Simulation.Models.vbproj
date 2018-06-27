@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <ProjectGuid>{5F121622-23FB-415D-8713-EF83B93EC590}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ScottPage.RollsRoyce.TestCellSimulator.Simulation.Models</RootNamespace>
+    <AssemblyName>Simulation.Models</AssemblyName>
+    <MyType>Custom</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Simulation.Models.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Simulation.Models.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="ScottPage.WPF.Common" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections.ObjectModel" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.IO" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Runtime.Serialization" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\ConfigurationChangedEventArgs.vb" />
+    <Compile Include="Interfaces\ICalculatable.vb" />
+    <Compile Include="Interfaces\INotifyConfigurationChanged.vb" />
+    <Compile Include="Interfaces\IElectronicEngineController.vb" />
+    <Compile Include="Interfaces\IAlarms.vb" />
+    <Compile Include="Interfaces\ICompressor.vb" />
+    <Compile Include="Interfaces\IElectricalStarter.vb" />
+    <Compile Include="Interfaces\IEngine.vb" />
+    <Compile Include="Interfaces\IEngineMonitoringUnit.vb" />
+    <Compile Include="Interfaces\IFuelSystem.vb" />
+    <Compile Include="Interfaces\IIgnitor.vb" />
+    <Compile Include="Interfaces\IPolynomialOrder.vb" />
+    <Compile Include="Interfaces\IRange.vb" />
+    <Compile Include="Interfaces\IValve.vb" />
+    <Compile Include="ViewModels\Alarms\AlarmType.vb" />
+    <Compile Include="ViewModels\Engines\EngineType.vb" />
+    <Compile Include="ViewModels\Parameters\Calculatable.vb" />
+    <Compile Include="ViewModels\Parameters\EngineModeTransitionPlayback.vb" />
+    <Compile Include="ViewModels\Parameters\ParameterListViewModel.vb" />
+    <Compile Include="ViewModels\Parameters\PolynomialOrder.vb" />
+    <Compile Include="ViewModels\Parameters\Quality.vb" />
+    <Compile Include="ViewModels\Parameters\DataPoint.vb" />
+    <Compile Include="ViewModels\Parameters\Extensions.vb" />
+    <Compile Include="ViewModels\Parts\ElectronicEngineController.vb" />
+    <Compile Include="ViewModels\Parts\EngineMonitoringUnit.vb" />
+    <Compile Include="ViewModels\Parts\IgnitionState.vb" />
+    <Compile Include="Interfaces\IIgnitionSystem.vb" />
+    <Compile Include="Interfaces\IOilSystem.vb" />
+    <Compile Include="Interfaces\IStarter.vb" />
+    <Compile Include="Interfaces\IThrottleSystem.vb" />
+    <Compile Include="Interfaces\IPneumaticStarter.vb" />
+    <Compile Include="ViewModels\Engines\Trent.vb" />
+    <Compile Include="ViewModels\Engines\TrentXWB.vb" />
+    <Compile Include="ViewModels\Parts\Compressor.vb" />
+    <Compile Include="ViewModels\Parts\Ignitor.vb" />
+    <Compile Include="ViewModels\Parts\PneumaticStarter.vb" />
+    <Compile Include="ViewModels\Parts\Starter.vb" />
+    <Compile Include="ViewModels\Parts\Valve.vb" />
+    <Compile Include="ViewModels\Parameters\Range.vb" />
+    <Compile Include="ViewModels\Systems\FuelSystem.vb" />
+    <Compile Include="ViewModels\Parts\StarterType.vb" />
+    <Compile Include="ViewModels\Engines\EngineMode.vb" />
+    <Compile Include="Interfaces\IPolynomial.vb" />
+    <Compile Include="Interfaces\IShaft.vb" />
+    <Compile Include="Interfaces\IAlarm.vb" />
+    <Compile Include="ViewModels\Alarms\Alarm.vb" />
+    <Compile Include="ViewModels\Engines\Engine.vb" />
+    <Compile Include="ViewModels\Systems\IgnitionSystem.vb" />
+    <Compile Include="ViewModels\Systems\OilSystem.vb" />
+    <Compile Include="ViewModels\Parameters\Parameter.vb" />
+    <Compile Include="ViewModels\Parameters\Polynomial.vb" />
+    <Compile Include="ViewModels\Systems\ThrottleSystem.vb" />
+    <Compile Include="ViewModels\Parameters\Value.vb" />
+    <Compile Include="ViewModels\Parts\Shaft.vb" />
+    <Compile Include="ViewModels\Alarms\Alarms.vb" />
+    <Compile Include="Interfaces\IParameter.vb" />
+    <Compile Include="Interfaces\IValue.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\AlarmView.xaml.vb">
+      <DependentUpon>AlarmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterIntegerUpDownFieldView.xaml.vb">
+      <DependentUpon>ParameterIntegerUpDownFieldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterDoubleUpDownFieldView.xaml.vb">
+      <DependentUpon>ParameterDoubleUpDownFieldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterTextBlockFieldView.xaml.vb">
+      <DependentUpon>ParameterTextBlockFieldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterListView.xaml.vb">
+      <DependentUpon>ParameterListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterTextBoxFieldView.xaml.vb">
+      <DependentUpon>ParameterTextBoxFieldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterView.xaml.vb">
+      <DependentUpon>ParameterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PolynomialView.xaml.vb">
+      <DependentUpon>PolynomialView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AlarmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ParameterIntegerUpDownFieldView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ParameterDoubleUpDownFieldView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ParameterTextBlockFieldView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ParameterListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ParameterTextBoxFieldView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ParameterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PolynomialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

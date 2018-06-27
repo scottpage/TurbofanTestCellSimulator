@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="PolynomialView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:model="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Simulation.Models"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="MinWidth"
+                    Value="75" />
+        </Style>
+        <Style TargetType="{x:Type model:ParameterTextBlockFieldView}">
+            <Setter Property="TextMinWidth"
+                    Value="75" />
+        </Style>
+        <Style TargetType="{x:Type model:ParameterTextBoxFieldView}">
+            <Setter Property="TextMinWidth"
+                    Value="75" />
+        </Style>
+        <Style TargetType="{x:Type model:ParameterDoubleUpDownFieldView}">
+            <Setter Property="TextMinWidth"
+                    Value="75" />
+        </Style>
+        <Style TargetType="{x:Type model:ParameterIntegerUpDownFieldView}">
+            <Setter Property="TextMinWidth"
+                    Value="75" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Border BorderBrush="Black"
+                BorderThickness="2">
+            <StackPanel>
+                <model:ParameterTextBlockFieldView Text="Name"
+                                                   Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=model:PolynomialView, AncestorLevel=1}, Path=PolynomialName}" />
+                <model:ParameterDoubleUpDownFieldView Text="Noise Level"
+                                                      Value="{Binding Path=NoiseLevel}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

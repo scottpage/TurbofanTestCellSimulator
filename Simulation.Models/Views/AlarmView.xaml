@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="AlarmView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:model="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Simulation.Models"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <model:ParameterTextBlockFieldView Text="Type"
+                                               Value="{Binding Path=Type}" />
+            <model:ParameterDoubleUpDownFieldView Text="Limit"
+                                                  Value="{Binding Path=Limit}" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           TextAlignment="Right"
+                           Margin="2"
+                           Text="Alarming?:" />
+                <Border BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="3"
+                        Margin="2">
+                    <CheckBox IsChecked="{Binding Path=IsAlarming, Mode=OneWay}"
+                              IsEnabled="False" />
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           TextAlignment="Right"
+                           Margin="2"
+                           Text="Acknowledged?:" />
+                <Border BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="3"
+                        Margin="2">
+                    <CheckBox IsChecked="{Binding Path=IsAcknowledged, Mode=OneWay}"
+                              IsEnabled="False" />
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

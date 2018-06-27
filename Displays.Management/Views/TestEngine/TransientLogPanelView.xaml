@@ -1,0 +1,106 @@
+﻿<UserControl
+    x:Class="TransientLogPanelView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.ManagementDisplay"
+    mc:Ignorable="d"
+    d:DesignHeight="251"
+    d:DesignWidth="790">
+    <Grid>
+        <GroupBox
+            Margin="3">
+            <GroupBox.Header>
+                <TextBlock
+                    Text="Logs"
+                    Foreground="#FFD0D0BF" />
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="0.2511*" />
+                    <RowDefinition
+                        Height="0.1166*" />
+                    <RowDefinition
+                        Height="0.6323*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="0.305*" />
+                    <ColumnDefinition
+                        Width="0.0566*" />
+                    <ColumnDefinition
+                        Width="0.305*" />
+                    <ColumnDefinition
+                        Width="0.3333*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Margin="15"
+                    Content="Refresh" />
+                <local:TransientLogListView
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Header="Log Definitions"
+                    DataContext="{Binding Path=AvailableLogs}"
+                    x:Name="AvailableTransientLogsListView" />
+                <UniformGrid
+                    Columns="1"
+                    Rows="2"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Grid.RowSpan="2">
+                    <Button
+                        Content="&gt;"
+                        VerticalAlignment="Bottom"
+                        Margin="5"
+                        Command="{Binding Path=StartLogCommand}">
+                        <Button.Background>
+                            <LinearGradientBrush
+                                EndPoint="0.5,1"
+                                StartPoint="0.5,0">
+                                <GradientStop
+                                    Color="White"
+                                    Offset="0" />
+                                <GradientStop
+                                    Color="#FFF2CE93"
+                                    Offset="1" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button
+                        Content="&lt;"
+                        VerticalAlignment="Top"
+                        Margin="5"
+                        Command="{Binding Path=StopLogCommand}">
+                        <Button.Background>
+                            <LinearGradientBrush
+                                EndPoint="0.5,1"
+                                StartPoint="0.5,0">
+                                <GradientStop
+                                    Color="White"
+                                    Offset="0" />
+                                <GradientStop
+                                    Color="#FFF2CE93"
+                                    Offset="1" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </UniformGrid>
+                <local:TransientLogListView
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Grid.RowSpan="2"
+                    Header="Running Logs"
+                    DataContext="{Binding Path=RunningLogs}"
+                    x:Name="RunningTransientLogsListView" />
+                <Button
+                    Command="{Binding Path=SaveCriticalSentryLogCommand}"
+                    Content="Save Critical / Sentry"
+                    Grid.Column="3"
+                    Name="SaveCriticalSentryLogButton"
+                    Margin="5"></Button>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

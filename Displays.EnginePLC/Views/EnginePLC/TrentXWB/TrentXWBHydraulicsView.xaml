@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="TrentXWBHydraulicsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+    <local:PLCDisplaySection>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.6*" />
+            </Grid.RowDefinitions>
+            <UniformGrid Columns="2"
+                         Rows="1"
+                         Margin="25,10,25,0">
+                <local:HeaderedTwoStateView Header="HYD PUMP 1 FITTED"
+                                            StateOneCommand="{Binding Path=ToggleIsHydraulicPump1NotFittedCommand}"
+                                            StateTwoCommand="{Binding Path=ToggleIsHydraulicPump1NotFittedCommand}"
+                                            State="{Binding Path=IsHydraulicPump1NotFitted}"
+                                            StateOneText="YES"
+                                            StateTwoText="NO"
+                                            Margin="0,0,5,0"
+                                            Background="Gray" />
+                <local:HeaderedTwoStateView Header="HYD PUMP 2 FITTED"
+                                            StateOneCommand="{Binding Path=ToggleIsHydraulicPump2NotFittedCommand}"
+                                            StateTwoCommand="{Binding Path=ToggleIsHydraulicPump2NotFittedCommand}"
+                                            State="{Binding Path=IsHydraulicPump2NotFitted}"
+                                            StateOneText="YES"
+                                            StateTwoText="NO"
+                                            Margin="5,0,0,0"
+                                            Background="Gray" />
+            </UniformGrid>
+        </Grid>
+    </local:PLCDisplaySection>
+</UserControl>

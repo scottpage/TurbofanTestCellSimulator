@@ -1,0 +1,157 @@
+﻿<UserControl
+    x:Class="StartSelectorStateStatusButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays"
+    xmlns:services="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Services;assembly=ScottPage.RollsRoyce.TestCellSimulator.Displays.Services"
+    mc:Ignorable="d"
+    d:DesignHeight="174"
+    d:DesignWidth="145"
+    Background="LightGray">
+    <Grid>
+        <Border
+            BorderThickness="5,5,0,0"
+            BorderBrush="{StaticResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+        <Border
+            BorderThickness="0,0,5,5"
+            BorderBrush="{StaticResource {x:Static SystemColors.ControlLightBrushKey}}" />
+        <Grid
+            Margin="10">
+            <Border
+                BorderThickness="5,5,0,0"
+                BorderBrush="{StaticResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+            <Border
+                BorderThickness="0,0,5,5"
+                BorderBrush="{StaticResource {x:Static SystemColors.ControlLightBrushKey}}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="0.4*" />
+                    <RowDefinition
+                        Height="0.6*" />
+                </Grid.RowDefinitions>
+                <Label
+                    Name="StatusLabel"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Padding="0"
+                    Margin="5"
+                    BorderBrush="Black"
+                    BorderThickness="0.5"
+                    Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=StatusLabelBackgroundGridColor}">
+                    <StackPanel>
+                        <TextBlock
+                            Name="StatusLabelRow1TextBlock"
+                            Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=TopStatusText}"
+                            TextAlignment="Center"
+                            FontSize="14" />
+                        <TextBlock
+                            Name="StatusLabelRow2TextBlock"
+                            Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=BottomStatusText}"
+                            TextAlignment="Center"
+                            FontSize="14" />
+                    </StackPanel>
+                </Label>
+                <Grid
+                    Margin="5"
+                    Name="ButtonBackgroundGrid"
+                    Row="1">
+                    <Button
+                        Name="OnOffButton"
+                        Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=Command}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Viewbox
+                                Grid.Row="0">
+                                <TextBlock
+                                    Name="OnOffButtonRow1TextBlock"
+                                    Text="ON"
+                                    TextAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style
+                                            TargetType="{x:Type TextBlock}">
+                                            <Setter
+                                                Property="Foreground"
+                                                Value="Gray" />
+                                            <Style.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=State}">
+                                                    <DataTrigger.Value>
+                                                        <services:IgnitionState>On</services:IgnitionState>
+                                                    </DataTrigger.Value>
+                                                    <Setter
+                                                        Property="Foreground"
+                                                        Value="Black" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Viewbox>
+                            <Viewbox
+                                Grid.Row="1">
+                                <TextBlock
+                                    Name="OnOffButtonRow2TextBlock"
+                                    Text="ARMED"
+                                    TextAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style
+                                            TargetType="{x:Type TextBlock}">
+                                            <Setter
+                                                Property="Foreground"
+                                                Value="Gray" />
+                                            <Style.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=State}">
+                                                    <DataTrigger.Value>
+                                                        <services:IgnitionState>Armed</services:IgnitionState>
+                                                    </DataTrigger.Value>
+                                                    <Setter
+                                                        Property="Foreground"
+                                                        Value="OrangeRed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Viewbox>
+                            <Viewbox
+                                Grid.Row="2">
+                                <TextBlock
+                                    Name="OnOffButtonRow3TextBlock"
+                                    Text="OFF"
+                                    TextAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style
+                                            TargetType="{x:Type TextBlock}">
+                                            <Setter
+                                                Property="Foreground"
+                                                Value="Gray" />
+                                            <Style.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:StartSelectorStateStatusButton, AncestorLevel=1}, Path=State}">
+                                                    <DataTrigger.Value>
+                                                        <services:IgnitionState>Off</services:IgnitionState>
+                                                    </DataTrigger.Value>
+                                                    <Setter
+                                                        Property="Foreground"
+                                                        Value="Black" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

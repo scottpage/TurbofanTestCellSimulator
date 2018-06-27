@@ -1,0 +1,91 @@
+﻿<UserControl
+    x:Class="EngineView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Simulation"
+    xmlns:model="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Simulation.Models;assembly=Simulation.Models"
+    mc:Ignorable="d"
+    d:DesignHeight="1024"
+    d:DesignWidth="1280">
+    <UserControl.Resources>
+        <local:TemperatureToColorConverter
+            x:Key="TGTTemperatureToColorConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="0.6515625*" />
+            <ColumnDefinition
+                Width="0.0578125*" />
+            <ColumnDefinition
+                Width="0.290625*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="0.38671875*" />
+            <RowDefinition
+                Height="0.0859375*" />
+            <RowDefinition
+                Height="0.103515625*" />
+            <RowDefinition
+                Height="0.423828125*" />
+        </Grid.RowDefinitions>
+        <Image
+            Source="/ControlStation;component/Images/highresimageTrent-XWB_tcm239-37117.jpg"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="3"
+            Stretch="Fill" />
+        <StackPanel
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+                    Margin="12,12,0,0">
+            <local:EngineParameterView
+                MinWidth="100"
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                DataContext="{Binding Path=Shaft1}" />
+            <local:EngineParameterView
+                MinWidth="100"
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                DataContext="{Binding Path=Shaft2}" />
+            <local:EngineParameterView
+                MinWidth="100"
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                DataContext="{Binding Path=Shaft3}" />
+        </StackPanel>
+        <StackPanel Margin="12,120,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left">
+            <local:EngineParameterView
+                MinWidth="100"
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                DataContext="{Binding Path=HighPressureCompressor.Pressure}" />
+            <local:EngineParameterView
+                MinWidth="100"
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                DataContext="{Binding Path=HighPressureCompressor.Temperature}" />
+            <local:EngineParameterView
+                MinWidth="100"
+                Margin="5"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                DataContext="{Binding Path=TurbineGasTemperature}" />
+        </StackPanel>
+        <Ellipse
+            Fill="{Binding Path=TurbineGasTemperature.Value.Average, Converter={StaticResource TGTTemperatureToColorConverter}}"
+            Grid.Column="1"
+            Grid.Row="1"
+            Grid.RowSpan="2" />
+    </Grid>
+</UserControl>

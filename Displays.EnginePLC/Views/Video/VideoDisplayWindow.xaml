@@ -1,0 +1,48 @@
+﻿<Window
+    x:Class="VideoDisplayWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mk="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
+    Title="Camera 1 - Head-On"
+    WindowStyle="None"
+    ResizeMode="NoResize"
+    Background="Black"
+    mc:Ignorable="d"
+    d:DesignHeight="1024"
+    d:DesignWidth="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="0.85*" />
+            <RowDefinition
+                Height="0.15*" />
+        </Grid.RowDefinitions>
+        <mk:MediaUriElement
+            Name="MediaUriElement1"
+            Source="{Binding Path=Source}"
+            Volume="{Binding Path=Volume}"
+            Loop="True"
+            UnloadedBehavior="Stop"
+            Grid.RowSpan="2" />
+        <TextBlock
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="26"
+            Text="{Binding Path=CurrentDateTime, StringFormat=\{0:R\}, FallbackValue='01-SEP-2012  07:13:21 GMT'}"
+            Margin="0,0,100,0" />
+        <TextBlock
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Foreground="White"
+            FontWeight="Bold"
+            FontSize="26"
+            Text="Camera 1 - Eagles Nest Head-On"
+            Margin="100,0,0,0" />
+    </Grid>
+</Window>

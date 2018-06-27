@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="TwoStateButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             Background="#FFF0F0F0">
+    <Button Grid.Row="1"
+            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=Command}"
+            VerticalContentAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=Background}"
+            IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=IsEnabled}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.25*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*" />
+                        <ColumnDefinition Width="0.70*" />
+                        <ColumnDefinition Width="0.15*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle x:Name="IndicatorRectangle"
+                               Grid.Column="1"
+                               Stroke="Black"
+                               Height="7"
+                               Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=IndicatorFill}">
+                        <Rectangle.Style>
+                            <Style TargetType="{x:Type Rectangle}">
+                                <Setter Property="Visibility"
+                                        Value="Collapsed" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=IsIndicatorEnabled}"
+                                                       Value="True" />
+                                            <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=State}"
+                                                       Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility"
+                                                Value="Visible" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Rectangle.Style>
+                    </Rectangle>
+                </Grid>
+                <Viewbox Grid.Row="1"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=TopText}"
+                               FontWeight="Bold">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground"
+                                                Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=TopTextNotSelectedForeground}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=State}"
+                                                         Value="True">
+                                                <Setter Property="Foreground"
+                                                        Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=TopTextSelectedForeground}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style></TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="2"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=BottomText}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontWeight="Bold">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Foreground"
+                                        Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=BottomTextSelectedForeground}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=State}"
+                                                 Value="True">
+                                        <Setter Property="Foreground"
+                                                Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateButton, AncestorLevel=1}, Path=BottomTextNotSelectedForeground}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style></TextBlock>
+                </Viewbox>
+            </Grid>
+        </Grid>
+    </Button>
+</UserControl>

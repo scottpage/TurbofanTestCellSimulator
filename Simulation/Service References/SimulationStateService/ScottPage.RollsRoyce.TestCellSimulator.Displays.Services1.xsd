@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ScottPage.RollsRoyce.TestCellSimulator.Displays.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ScottPage.RollsRoyce.TestCellSimulator.Displays.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SimulationState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AirInletTemperature" type="xs:double" />
+      <xs:element minOccurs="0" name="Alarms" nillable="true" type="tns:ArrayOfAlarmValue" />
+      <xs:element minOccurs="0" name="ConfigurationVersion" type="xs:int" />
+      <xs:element minOccurs="0" name="EngineBuild" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineMode" type="tns:EngineMode" />
+      <xs:element minOccurs="0" name="EnginePLC" nillable="true" type="tns:EnginePLCState" />
+      <xs:element minOccurs="0" name="EnginePartTest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineSerialNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsFullsetRunning" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:SimulationParameters" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SimulationState" nillable="true" type="tns:SimulationState" />
+  <xs:complexType name="ArrayOfAlarmValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlarmValue" nillable="true" type="tns:AlarmValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlarmValue" nillable="true" type="tns:ArrayOfAlarmValue" />
+  <xs:complexType name="AlarmValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentValue" type="xs:double" />
+      <xs:element minOccurs="0" name="IsAcknowledged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Limit" type="xs:double" />
+      <xs:element minOccurs="0" name="MinimumMaximum" type="xs:double" />
+      <xs:element minOccurs="0" name="ParameterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:AlarmType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlarmValue" nillable="true" type="tns:AlarmValue" />
+  <xs:simpleType name="AlarmType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="High" />
+      <xs:enumeration value="HighCritical" />
+      <xs:enumeration value="Low" />
+      <xs:enumeration value="LowCritical" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AlarmType" nillable="true" type="tns:AlarmType" />
+  <xs:simpleType name="EngineMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="DryCranking" />
+      <xs:enumeration value="Running" />
+      <xs:enumeration value="Stopped" />
+      <xs:enumeration value="Stopping" />
+      <xs:enumeration value="Starting" />
+      <xs:enumeration value="AbortingStart" />
+      <xs:enumeration value="WetCranking" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EngineMode" nillable="true" type="tns:EngineMode" />
+  <xs:complexType name="EnginePLCState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IgnitionState" type="tns:IgnitionState" />
+      <xs:element minOccurs="0" name="IsEMUPowerOn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFuelOn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsGroundPowerOn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHighIdleSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHydraulicPump1Detected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHydraulicPump1NotFitted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHydraulicPump2Detected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHydraulicPump2NotFitted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsIgnitor1Commanded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsIgnitor2Commanded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInFlight" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsManualStartOn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMasterCautionActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMasterWarningActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsStartAirValveOpened" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsStartMasterOn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartReadings" nillable="true" type="tns:EnginePLCStartReadings" />
+      <xs:element minOccurs="0" name="StartSelectorState" type="tns:StartSelectorState" />
+      <xs:element minOccurs="0" name="StopReadings" nillable="true" type="tns:EnginePLCStopReadings" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnginePLCState" nillable="true" type="tns:EnginePLCState" />
+  <xs:simpleType name="IgnitionState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="On" />
+      <xs:enumeration value="Armed" />
+      <xs:enumeration value="Off" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IgnitionState" nillable="true" type="tns:IgnitionState" />
+  <xs:complexType name="EnginePLCStartReadings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AirIntakeTemperatureAtIdle" type="xs:double" />
+      <xs:element minOccurs="0" name="FuelOn" type="xs:double" />
+      <xs:element minOccurs="0" name="FuelOnSeconds" type="xs:double" />
+      <xs:element minOccurs="0" name="HPRotation" type="xs:double" />
+      <xs:element minOccurs="0" name="IPRotation" type="xs:double" />
+      <xs:element minOccurs="0" name="LPRotation" type="xs:double" />
+      <xs:element minOccurs="0" name="LightupFuelFlow" type="xs:double" />
+      <xs:element minOccurs="0" name="Lit" type="xs:double" />
+      <xs:element minOccurs="0" name="LitSeconds" type="xs:double" />
+      <xs:element minOccurs="0" name="MaxTGT" type="xs:double" />
+      <xs:element minOccurs="0" name="N2DeadCrankSeconds" type="xs:double" />
+      <xs:element minOccurs="0" name="N2DeadCrankSpeed" type="xs:double" />
+      <xs:element minOccurs="0" name="N3DeadCrankSeconds" type="xs:double" />
+      <xs:element minOccurs="0" name="N3DeadCrankSpeed" type="xs:double" />
+      <xs:element minOccurs="0" name="OilPressureAtIdle" type="xs:double" />
+      <xs:element minOccurs="0" name="PrestartStartAirPressure" type="xs:double" />
+      <xs:element minOccurs="0" name="PrestartTGT" type="xs:double" />
+      <xs:element minOccurs="0" name="StarterCut" type="xs:double" />
+      <xs:element minOccurs="0" name="StarterCutSeconds" type="xs:double" />
+      <xs:element minOccurs="0" name="StartingStartAirPressure" type="xs:double" />
+      <xs:element minOccurs="0" name="TimeToGI" type="xs:double" />
+      <xs:element minOccurs="0" name="VibrationAtIdle" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnginePLCStartReadings" nillable="true" type="tns:EnginePLCStartReadings" />
+  <xs:simpleType name="StartSelectorState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Crank" />
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="IgnitionStart" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StartSelectorState" nillable="true" type="tns:StartSelectorState" />
+  <xs:complexType name="EnginePLCStopReadings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EngineOilContent" type="xs:double" />
+      <xs:element minOccurs="0" name="EngineOilTemperature" type="xs:double" />
+      <xs:element minOccurs="0" name="MaxVibrationDuringRundown" type="xs:double" />
+      <xs:element minOccurs="0" name="NoHPRotation" type="xs:double" />
+      <xs:element minOccurs="0" name="NoIPRotation" type="xs:double" />
+      <xs:element minOccurs="0" name="NoLPRotation" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnginePLCStopReadings" nillable="true" type="tns:EnginePLCStopReadings" />
+  <xs:complexType name="SimulationParameters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AirInletTemperature" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="FuelPressure" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="FuelTemperature" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="HighPressureCompressorPressure" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="HighPressureCompressorTemperature" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="LaneABroadbandVibration" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="LaneBBroadbandVibration" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="OilPressure" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="OilQuantity" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="OilTemperature" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="Shaft1" nillable="true" type="tns:ShaftValue" />
+      <xs:element minOccurs="0" name="Shaft1LaneAVibration" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="Shaft1LaneBVibration" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="Shaft2" nillable="true" type="tns:ShaftValue" />
+      <xs:element minOccurs="0" name="Shaft2LaneAVibration" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="Shaft2LaneBVibration" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="ThrottleLeverAngle" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="ThrottleResolverAngle" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="Thrust" nillable="true" type="tns:ParameterValue" />
+      <xs:element minOccurs="0" name="TurbineGasTemperature" nillable="true" type="tns:ParameterValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SimulationParameters" nillable="true" type="tns:SimulationParameters" />
+  <xs:complexType name="ParameterValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Average" type="xs:double" />
+      <xs:element minOccurs="0" name="EngineeringUnits" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HighAlarmLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="HighCriticalAlarmLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="LowAlarmLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="LowCriticalAlarmLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="Maximum" type="xs:double" />
+      <xs:element minOccurs="0" name="Minimum" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quality" type="tns:Quality" />
+      <xs:element minOccurs="0" name="Value" type="xs:double" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParameterValue" nillable="true" type="tns:ParameterValue" />
+  <xs:simpleType name="Quality">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Good" />
+      <xs:enumeration value="Suspect" />
+      <xs:enumeration value="Bad" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Quality" nillable="true" type="tns:Quality" />
+  <xs:complexType name="ShaftValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParameterValue">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CorrectedSpeed" type="xs:double" />
+          <xs:element minOccurs="0" name="CorrectedSpeedRoot20" type="xs:double" />
+          <xs:element minOccurs="0" name="Number" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShaftValue" nillable="true" type="tns:ShaftValue" />
+  <xs:complexType name="TrentParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SimulationParameters">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Shaft3" nillable="true" type="tns:ShaftValue" />
+          <xs:element minOccurs="0" name="Shaft3LaneAVibration" nillable="true" type="tns:ParameterValue" />
+          <xs:element minOccurs="0" name="Shaft3LaneBVibration" nillable="true" type="tns:ParameterValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrentParameters" nillable="true" type="tns:TrentParameters" />
+  <xs:complexType name="TrentXWBParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TrentParameters">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StarterPressure" nillable="true" type="tns:ParameterValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrentXWBParameters" nillable="true" type="tns:TrentXWBParameters" />
+</xs:schema>

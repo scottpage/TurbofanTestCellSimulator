@@ -1,0 +1,48 @@
+﻿<Window
+    x:Class="UnifiedEventLogWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.ManagementDisplay"
+    Title="Main Online - UELDisplay"
+    Height="300"
+    Left="0"
+    mc:Ignorable="d"
+    d:DesignWidth="854">
+    <DockPanel>
+        <Menu
+            DockPanel.Dock="Top">
+            <MenuItem
+                Header="File" />
+        </Menu>
+        <ListView
+            local:ListViewExtenders.AutoScrollToEnd="True"
+            ItemsSource="{Binding Path=Entries}"
+            SelectedItem="{Binding Path=SelectedEntry}"
+            Background="#FF030303"
+            Foreground="SkyBlue"
+            SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Header="Severity"
+                        DisplayMemberBinding="{Binding Path=Severity}"
+                        Width="100" />
+                    <GridViewColumn
+                        Header="Time"
+                        DisplayMemberBinding="{Binding Path=Timestamp}"
+                        Width="200" />
+                    <GridViewColumn
+                        Header="Source"
+                        DisplayMemberBinding="{Binding Path=Source}"
+                        Width="100" />
+                    <GridViewColumn
+                        Header="Message"
+                        DisplayMemberBinding="{Binding Path=Message}"
+                        Width="500" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

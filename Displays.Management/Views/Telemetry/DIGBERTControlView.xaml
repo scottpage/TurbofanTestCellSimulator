@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="DIGBERTControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.ManagementDisplay"
+             mc:Ignorable="d"
+             d:DesignHeight="108"
+             d:DesignWidth="691">
+    <UserControl.Resources>
+        <local:BooleanToColorConverter x:Key="BooleanToColorConverter"
+                                       FalseBrush="Gray" />
+    </UserControl.Resources>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Border Margin="5"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    HorizontalAlignment="Left">
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <local:TelemetryDeviceSelectionSelectorView SelectionName="{Binding Path=SelectionA.Name}"
+                                                                IsSelected="{Binding Path=SelectionA.IsSelected}"
+                                                                Command="{Binding Path=SelectSelectionACommand}" />
+                    <local:TelemetryDeviceSelectionSelectorView SelectionName="{Binding Path=SelectionB.Name}"
+                                                                IsSelected="{Binding Path=SelectionB.IsSelected}"
+                                                                Command="{Binding Path=SelectSelectionBCommand}" />
+                    <local:TelemetryDeviceSelectionSelectorView SelectionName="{Binding Path=SelectionC.Name}"
+                                                                IsSelected="{Binding Path=SelectionC.IsSelected}"
+                                                                Command="{Binding Path=SelectSelectionCCommand}" />
+                    <StackPanel HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Margin="20,0,0,0">
+                        <StackPanel>
+                            <Button Margin="2"
+                                    Content="Cal"
+                                    Command="{Binding Path=ToggleCalibrationCommand}"
+                                    HorizontalAlignment="Center" />
+                            <Ellipse Margin="2"
+                                     Height="20"
+                                     Width="20"
+                                     Fill="{Binding Path=IsCalibrationOn, Converter={StaticResource BooleanToColorConverter}}"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Style="{StaticResource proDASEllipseStyle}" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Button Margin="2"
+                                    Content="Pol"
+                                    Command="{Binding Path=TogglePolarityCommand}"
+                                    HorizontalAlignment="Center" />
+                            <Ellipse Fill="{Binding Path=IsPolarityOn, Converter={StaticResource BooleanToColorConverter}}"
+                                     Margin="2"
+                                     Height="20"
+                                     Width="20"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Style="{StaticResource proDASEllipseStyle}" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border Margin="5"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                    HorizontalAlignment="Left">
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <StackPanel>
+                        <Ellipse Margin="2"
+                                 Height="20"
+                                 Width="20"
+                                 Fill="{Binding Path=IsPowerOn, Converter={StaticResource BooleanToColorConverter}}"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                                 Style="{StaticResource proDASEllipseStyle}" />
+                        <StackPanel Orientation="Horizontal">
+                            <Button Margin="2"
+                                    Command="{Binding Path=TogglePowerCommand}"
+                                    HorizontalAlignment="Center">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Content"
+                                                Value="Power On" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsPowerOn}"
+                                                         Value="True">
+                                                <Setter Property="Content"
+                                                        Value="Power Off" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,163 @@
+﻿<Window
+    x:Class="VibrationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:ScottPage.TestCellSimulator.DriverDisplay"
+    xmlns:ui="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework;assembly=ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework"
+    ui:RealTimeDisplayBanner.DisplayName="Vibration"
+    ui:RealTimeDisplayBanner.IsBannerVisible="True"
+    Height="724"
+    Width="1280"
+    Top="-1024"
+    Left="0"
+    Title="{Binding Path=Title}">
+    <Window.Resources>
+        <Style
+            TargetType="{x:Type TextBlock}">
+            <Setter
+                Property="FontSize"
+                Value="30" />
+            <Setter
+                Property="Foreground"
+                Value="Silver" />
+            <Setter
+                Property="HorizontalAlignment"
+                Value="Center" />
+            <Setter
+                Property="VerticalAlignment"
+                Value="Center" />
+        </Style>
+        <Style
+            TargetType="{x:Type Border}">
+            <Setter
+                Property="Margin"
+                Value="15" />
+        </Style>
+        <Style
+            TargetType="{x:Type ui:HorizontalLinearGauge}">
+            <Setter
+                Property="Margin"
+                Value="3" />
+        </Style>
+    </Window.Resources>
+    <Grid
+        Background="#FF5C5C5C">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border
+            Grid.Row="0"
+            BorderBrush="Black"
+            BorderThickness="2">
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*" />
+                <RowDefinition Height="0.75*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Text="Broad Band" />
+                <UniformGrid
+                    Grid.Row="1"
+                    Columns="2">
+                    <ui:HorizontalParameterGauge
+                    Margin="10,20"
+                    DecimalPlaces="1"
+                    DataContext="{Binding Path=LaneABroadbandVibration}" />
+                <ui:HorizontalParameterGauge
+                    Margin="10,20"
+                    DecimalPlaces="1"
+                    DataContext="{Binding Path=LaneBBroadbandVibration}" />
+            </UniformGrid>
+        </Grid>
+        </Border>
+        <Border
+            Grid.Row="1"
+            BorderBrush="Black"
+            BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="0.25*" />
+                    <RowDefinition
+                        Height="0.75*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Text="HP Tracked Order" />
+                <UniformGrid
+                    Grid.Row="1"
+                    Columns="2">
+                    <ui:HorizontalParameterGauge
+                        Margin="10,20"
+                        DecimalPlaces="1"
+                        DataContext="{Binding Path=LaneAShaft3Vibration}" />
+                    <ui:HorizontalParameterGauge
+                        Margin="10,20"
+                        DecimalPlaces="1"
+                        DataContext="{Binding Path=LaneBShaft3Vibration}" />
+                </UniformGrid>
+            </Grid>
+        </Border>
+        <Border
+            Grid.Row="2"
+            BorderBrush="Black"
+            BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="0.25*" />
+                    <RowDefinition
+                        Height="0.75*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Text="IP Tracked Order" />
+                <UniformGrid
+                    Grid.Row="1"
+                    Columns="2">
+                    <ui:HorizontalParameterGauge
+                        Margin="10,20"
+                        DecimalPlaces="1"
+                        DataContext="{Binding Path=LaneAShaft2Vibration}" />
+                    <ui:HorizontalParameterGauge
+                        Margin="10,20"
+                        DecimalPlaces="1"
+                        DataContext="{Binding Path=LaneBShaft2Vibration}" />
+                </UniformGrid>
+            </Grid>
+        </Border>
+        <Border
+            Grid.Row="3"
+            BorderBrush="Black"
+            BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="0.25*" />
+                    <RowDefinition
+                        Height="0.75*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Text="LP Tracked Order" />
+                <UniformGrid
+                    Grid.Row="1"
+                    Columns="2">
+                    <ui:HorizontalParameterGauge
+                        Margin="10,20"
+                        DecimalPlaces="1"
+                        DataContext="{Binding Path=LaneAShaft1Vibration}" />
+                    <ui:HorizontalParameterGauge
+                        Margin="10,20"
+                        DecimalPlaces="1"
+                        DataContext="{Binding Path=LaneBShaft1Vibration}" />
+                </UniformGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

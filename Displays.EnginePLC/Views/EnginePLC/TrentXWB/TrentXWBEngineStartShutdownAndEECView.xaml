@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="TrentXWBEngineStartShutdownAndEECView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays"
+             mc:Ignorable="d"
+             d:DesignHeight="638"
+             d:DesignWidth="814">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.60*" />
+            <RowDefinition Height="0.40*" />
+            <RowDefinition Height="0.05*" />
+            <RowDefinition Height="0.05*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.015*" />
+                <ColumnDefinition Width="0.445*" />
+                <ColumnDefinition Width="0.003*" />
+                <ColumnDefinition Width="0.211*" />
+                <ColumnDefinition Width="0.003*" />
+                <ColumnDefinition Width="0.298*" />
+                <ColumnDefinition Width="0.027*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.34*" />
+                    <RowDefinition Height="0.66*" />
+                </Grid.RowDefinitions>
+                <local:TrentXWBEngineStartSystemView x:Name="EngineStartSystem"
+                                                     DataContext="{Binding Path=EngineStartSystem}" />
+            </Grid>
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.7857*" />
+                    <RowDefinition Height="0.2143*" />
+                </Grid.RowDefinitions>
+                <local:TrentXWBFacilityStartSystemView x:Name="FacilityStartSystem"
+                                                       DataContext="{Binding Path=FacilityStartSystem}" />
+            </Grid>
+            <Grid Grid.Column="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.655*" />
+                    <RowDefinition Height="0.015*" />
+                    <RowDefinition Height="0.33*" />
+                </Grid.RowDefinitions>
+                <local:TrentXWBEECFunctionsView x:Name="EECFunctions"
+                                                DataContext="{Binding Path=EECFunctions}"
+                                                Grid.Row="0" />
+                <local:TrentXWBHydraulicsView x:Name="Hydraulics"
+                                              DataContext="{Binding Path=Hydraulics}"
+                                              Grid.Row="2" />
+            </Grid>
+        </Grid>
+        <local:StartAndShutdownReadingsButtonsView Grid.Row="2" />
+    </Grid>
+</UserControl>

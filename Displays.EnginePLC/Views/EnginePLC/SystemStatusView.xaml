@@ -1,0 +1,238 @@
+﻿<UserControl
+    x:Class="SystemStatusView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    d:DesignHeight="43"
+    d:DesignWidth="1231">
+    <Grid
+        Name="TopButtonGrid"
+        Grid.Row="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="0.0488*" />
+            <ColumnDefinition
+                Width="0.0595*" />
+            <ColumnDefinition
+                Width="0.0744*" />
+            <ColumnDefinition
+                Width="0.0923*" />
+            <ColumnDefinition
+                Width="0.0595*" />
+            <ColumnDefinition
+                Width="0.0595*" />
+            <ColumnDefinition
+                Width="0.0595*" />
+            <ColumnDefinition
+                Width="0.104*" />
+            <ColumnDefinition
+                Width="0.0988*" />
+            <ColumnDefinition
+                Width="0.0208*" />
+        </Grid.ColumnDefinitions>
+        <Button
+            Grid.Column="0"
+            Name="PLCStatusButton"
+            BorderBrush="White"
+            Foreground="White"
+            Style="{StaticResource FlatRoundedButtonStyle}"
+            Margin="3">
+            <UniformGrid
+                Rows="2"
+                Columns="1">
+                <Viewbox
+                    HorizontalAlignment="Center">
+                    <TextBlock
+                        Text="PLC" />
+                </Viewbox>
+                <Viewbox
+                    HorizontalAlignment="Center">
+                    <TextBlock
+                        Text="STATUS" />
+                </Viewbox>
+            </UniformGrid>
+        </Button>
+        <Button
+            Grid.Column="1"
+            Name="SoftwareStatusButton"
+            BorderBrush="White"
+            Foreground="White"
+            Style="{StaticResource FlatRoundedButtonStyle}"
+            Margin="3">
+            <UniformGrid
+                Rows="2"
+                Columns="1">
+                <Viewbox
+                    HorizontalAlignment="Center">
+                    <TextBlock
+                        Text="SOFTWARE" />
+                </Viewbox>
+                <Viewbox
+                    HorizontalAlignment="Center">
+                    <TextBlock
+                        Text="STATUS" />
+                </Viewbox>
+            </UniformGrid>
+        </Button>
+        <Button
+            Grid.Column="2"
+            Name="EngineButton"
+            BorderBrush="White"
+            Foreground="White"
+            Style="{StaticResource FlatRoundedButtonStyle}"
+            Margin="3">
+            <UniformGrid
+                Rows="2"
+                Columns="1">
+                <Viewbox
+                    HorizontalAlignment="Center">
+                    <TextBlock
+                        Text="{Binding Path=EngineType, FallbackValue=TRENT\ XWB}" />
+                </Viewbox>
+                <StackPanel
+                    Orientation="Horizontal">
+                    <Viewbox
+                        HorizontalAlignment="Center">
+                        <TextBlock
+                            Text="{Binding Path=EngineSerialNumber, FallbackValue=20005}" />
+                    </Viewbox>
+                    <Viewbox
+                        HorizontalAlignment="Center">
+                        <TextBlock
+                            Text="/" />
+                    </Viewbox>
+                    <Viewbox
+                        HorizontalAlignment="Center">
+                        <TextBlock
+                            Text="{Binding Path=EngineBuild, FallbackValue=1A}" />
+                    </Viewbox>
+                    <Viewbox
+                        HorizontalAlignment="Center">
+                        <TextBlock
+                            Text="." />
+                    </Viewbox>
+                    <Viewbox
+                        HorizontalAlignment="Center">
+                        <TextBlock
+                            Text="{Binding Path=EnginePartTest, FallbackValue=2}" />
+                    </Viewbox>
+                </StackPanel>
+            </UniformGrid>
+        </Button>
+        <Button
+            Grid.Column="3"
+            BorderBrush="White"
+            Foreground="White"
+            Name="CopyrightButton"
+            Style="{StaticResource FlatRoundedButtonStyle}"
+            Margin="3"
+            FontSize="12">
+            <StackPanel>
+                <TextBlock
+                    TextAlignment="Center">Copyright <Button
+                        Name="CopyrightExitButton"
+                        Style="{StaticResource FlatRoundedButtonStyle}"
+                        Width="14"
+                        Height="14"
+                        Padding="0"
+                        FontSize="8"
+                        Command="{Binding Path=ExitCommand}">C</Button> 2000</TextBlock>
+                <TextBlock
+                    TextAlignment="Center">Rolls-Royce PLC</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button
+            Content="STOP PLC"
+            Grid.Column="4"
+            Name="StopPLCButton" />
+        <Button
+            Grid.Column="5"
+            BorderBrush="White"
+            Foreground="White"
+            Name="PLCScanTimeButton"
+            Style="{StaticResource FlatRoundedButtonStyle}"
+            Margin="3"
+            FontSize="14">
+            <StackPanel>
+                <TextBlock
+                    TextAlignment="Center">PLC SCAN</TextBlock>
+                <TextBlock
+                    TextAlignment="Center">TIME</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button
+            Grid.Column="6"
+            BorderBrush="White"
+            Foreground="White"
+            Name="EDASCommunicationStatusButton"
+            Style="{StaticResource FlatRoundedButtonStyle}"
+            Margin="3"
+            FontSize="14">
+            <StackPanel>
+                <TextBlock
+                    TextAlignment="Center">EDAS COMMS</TextBlock>
+                <TextBlock
+                    TextAlignment="Center">STATUS</TextBlock>
+            </StackPanel>
+        </Button>
+        <Label
+            Grid.Column="7"
+            BorderBrush="White"
+            Foreground="White"
+            Name="ShutOffCockTestCompletedButton"
+            FontSize="10"
+            BorderThickness="2"
+            Padding="0"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Margin="2">
+            <UniformGrid
+                Rows="3"
+                Columns="1">
+                <TextBlock
+                    TextAlignment="Center">EMERGENCY PANEL</TextBlock>
+                <TextBlock
+                    TextAlignment="Center">SOC CLOSE SWITCH</TextBlock>
+                <TextBlock
+                    TextAlignment="Center">TEST COMPLETED</TextBlock>
+            </UniformGrid>
+        </Label>
+        <Grid
+            Grid.Column="8"
+            Margin="3">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Background="{x:Null}"
+                BorderBrush="White"
+                Foreground="White"
+                Name="AnalogueDefaultsOffButton"
+                BorderThickness="2"
+                FontSize="10"
+                Padding="0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
+                <TextBlock
+                    TextAlignment="Center">ANALOGUE DEFAULTS OFF</TextBlock>
+            </Label>
+            <Label
+                Grid.Row="1"
+                BorderBrush="White"
+                Foreground="White"
+                Name="DiscreteDefaultsOffButton"
+                BorderThickness="2"
+                FontSize="10"
+                Padding="0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
+                <TextBlock
+                    TextAlignment="Center">DISCRETE DEFAULTS OFF</TextBlock>
+            </Label>
+        </Grid>
+    </Grid>
+</UserControl>

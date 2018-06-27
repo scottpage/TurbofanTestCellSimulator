@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="TabFileImportParameterListsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:win="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d"
+             d:DesignHeight="358"
+             d:DesignWidth="795">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="ImportParametersViewSource"
+                              Source="{Binding Path=ImportParameters}">
+            <CollectionViewSource.SortDescriptions>
+                <win:SortDescription PropertyName="Name" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource x:Key="SimulationParametersViewSource"
+                              Source="{Binding Path=SimulationParameters}">
+            <CollectionViewSource.SortDescriptions>
+                <win:SortDescription PropertyName="Name" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource x:Key="CombinedParametersViewSource"
+                              Source="{Binding Path=CombinedParameters}">
+            <CollectionViewSource.SortDescriptions>
+                <win:SortDescription PropertyName="SimulationParameter.Name" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="MinWidth"
+                    Value="150" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.9*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Log Parameters"
+                   FontWeight="Bold" />
+        <ListBox ItemsSource="{Binding Source={StaticResource ImportParametersViewSource}}"
+                 SelectedItem="{Binding Path=SelectedImportParameter}"
+                 DisplayMemberPath="Name"
+                 Margin="5"
+                 Grid.Row="1"
+                 Grid.Column="0" />
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    Margin="5">
+            <Button  Content="Combine"
+                     Margin="2"
+                     Padding="5"
+                     Command="{Binding Path=CombineCommand}" />
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"
+                   Grid.Column="2"
+                   Text="Simulation Parameters"
+                   FontWeight="Bold" />
+        <ListBox Grid.Column="2"
+                 Grid.Row="1"
+                 ItemsSource="{Binding Source={StaticResource SimulationParametersViewSource}}"
+                 SelectedItem="{Binding Path=SelectedSimulationParameter}"
+                 DisplayMemberPath="Name"
+                 Margin="5" />
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"
+                   Grid.Column="3"
+                   Text="Matched Parameters"
+                   FontWeight="Bold" />
+        <ListView Grid.Column="3"
+                 Grid.Row="1"
+                 ItemsSource="{Binding Source={StaticResource CombinedParametersViewSource}}"
+                 SelectedItem="{Binding Path=SelectedCombinedParameter}"
+                 Margin="5"
+                 MinWidth="300">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Log Parameter"
+                                    Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=ImportParameter.Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Simulation Parameter"
+                                    Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=SimulationParameter.Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Column="4"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    Margin="5">
+            <Button  Content="Split"
+                     Margin="2"
+                     Padding="5"
+                     Command="{Binding Path=SplitCommand}" />
+            <Button  Content="Split All"
+                     Margin="2"
+                     Padding="5"
+                     Command="{Binding Path=SplitAllCommand}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

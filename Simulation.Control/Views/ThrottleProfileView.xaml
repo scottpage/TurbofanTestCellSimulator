@@ -1,0 +1,86 @@
+﻿<UserControl
+    x:Class="ThrottleProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    d:DesignHeight="392"
+    d:DesignWidth="626"
+    xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+    xmlns:my="clr-namespace:System.ComponentModel;assembly=WindowsBase">
+    <UserControl.Resources>
+        <CollectionViewSource
+            x:Key="ActualValuesViewSource"
+            Source="{Binding Path=ActualValues}">
+            <CollectionViewSource.SortDescriptions>
+                <my:SortDescription
+                    PropertyName="X" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource
+            x:Key="TargetValuesViewSource"
+            Source="{Binding Path=TargetValues}">
+            <CollectionViewSource.SortDescriptions>
+                <my:SortDescription
+                    PropertyName="X" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+    <Grid>
+        <chartingToolkit:Chart
+            Title="Throttle Lever Angle Profile">
+            <chartingToolkit:Chart.Axes>
+                <chartingToolkit:LinearAxis
+                    Orientation="X"
+                    Title="Time (Seconds)"
+                    Location="Bottom"
+                    Maximum="{Binding Path=MaximumTime, FallbackValue=100}"
+                    Minimum="0"
+                    ShowGridLines="True" />
+                <chartingToolkit:LinearAxis
+                    Orientation="Y"
+                    Title="{Binding Path=ParameterName, FallbackValue='Parameter Name'}"
+                    Location="Left"
+                    Maximum="{Binding Path=ValueMaximum, FallbackValue=100}"
+                    Minimum="{Binding Path=ValueMinimum, FallbackValue=0}"
+                    ShowGridLines="True" />
+            </chartingToolkit:Chart.Axes>
+            <chartingToolkit:LineSeries
+                Title="Current"
+                 DependentValuePath="Y"
+                IndependentValuePath="X"
+                ItemsSource="{Binding Source={StaticResource ActualValuesViewSource}}">
+                <chartingToolkit:LineSeries.DataPointStyle>
+                    <Style
+                        TargetType="chartingToolkit:LineDataPoint">
+                        <Setter
+                            Property="Width"
+                            Value="0" />
+                        <Setter
+                            Property="Height"
+                            Value="0" />
+                    </Style>
+                </chartingToolkit:LineSeries.DataPointStyle>
+            </chartingToolkit:LineSeries>
+            <chartingToolkit:LineSeries
+                Title="Average"
+                DependentValuePath="Y"
+                IndependentValuePath="X"
+                ItemsSource="{Binding Source={StaticResource TargetValuesViewSource}}"
+                Background="Blue">
+                <chartingToolkit:LineSeries.DataPointStyle>
+                    <Style
+                        TargetType="chartingToolkit:LineDataPoint">
+                        <Setter
+                            Property="Width"
+                            Value="0" />
+                        <Setter
+                            Property="Height"
+                            Value="0" />
+                    </Style>
+                </chartingToolkit:LineSeries.DataPointStyle>
+             </chartingToolkit:LineSeries>
+        </chartingToolkit:Chart>
+    </Grid>
+</UserControl>

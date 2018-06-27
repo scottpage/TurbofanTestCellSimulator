@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca77621c-5ae1-4b98-87dc-b1d727c48a88" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ScottSurface4/SimulationStateService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="60b2168e-dd80-4e23-96f7-0347398364dd" SourceId="1" SourceUrl="http://ScottSurface4/SimulationStateService/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="329c9197-29c9-4b40-bb16-524ac2f653b3" SourceId="1" SourceUrl="http://ScottSurface4/SimulationStateService/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="31665963-f500-482a-945d-4189b3b8125b" SourceId="1" SourceUrl="http://ScottSurface4/SimulationStateService/mex" />
+    <MetadataFile FileName="ScottPage.RollsRoyce.TestCellSimulator.Displays.Services1.xsd" MetadataType="Schema" ID="04b5ad24-bd55-47fb-9d58-f42433a0e43c" SourceId="1" SourceUrl="http://ScottSurface4/SimulationStateService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

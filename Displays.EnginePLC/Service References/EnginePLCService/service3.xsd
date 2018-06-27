@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UpdateFuelOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateManualStart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStartSelectorCrank">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStartSelectorNormal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStartSelectorIgnitionStart">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStartMasterOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIgnitionOn">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIgnitionArmed">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIgnitionOff">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroundPowerOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEMUPowerOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIsInFlight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isInFlight" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHighIdle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isHighIdle" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHydraulicPump1Fitted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isFitted" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHydraulicPump2Fitted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isFitted" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearStartReadings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearStopReadings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

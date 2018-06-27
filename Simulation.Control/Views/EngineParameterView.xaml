@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="EngineParameterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="27" d:DesignWidth="87">
+    <Grid>
+        <Border
+            BorderBrush="Black"
+            BorderThickness="2">
+            <StackPanel
+            Orientation="Horizontal">
+            <TextBlock
+                Margin="2"
+                FontWeight="Bold"
+                Text="{Binding Path=Name, FallbackValue=Name}" />
+            <TextBlock
+                Text="=" Margin="2" />
+            <TextBlock Style="{StaticResource ParameterQualityForegroundStyle}"
+                Margin="2"
+                    Text="{Binding Path=Value.Average, StringFormat=\{0:F\}, FallbackValue=0.00}" />
+        </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

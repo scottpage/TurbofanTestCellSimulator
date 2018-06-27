@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EnginePLCService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="tcp_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEnginePLCService_UpdateFuelOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFuelOn" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateManualStart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManualStart" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateStartSelectorCrank_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStartSelectorCrank" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateStartSelectorNormal_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStartSelectorNormal" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateStartSelectorIgnitionStart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStartSelectorIgnitionStart" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateStartMasterOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStartMasterOn" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateIgnitionOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIgnitionOn" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateIgnitionArmed_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIgnitionArmed" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateIgnitionOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIgnitionOff" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateGroundPowerOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroundPowerOn" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateEMUPowerOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEMUPowerOn" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateIsInFlight_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIsInFlight" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateHighIdle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHighIdle" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateHydraulicPump1Fitted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHydraulicPump1Fitted" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_UpdateHydraulicPump2Fitted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHydraulicPump2Fitted" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_ClearStartReadings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearStartReadings" />
+  </wsdl:message>
+  <wsdl:message name="IEnginePLCService_ClearStopReadings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearStopReadings" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IEnginePLCService">
+    <wsdl:operation name="UpdateFuelOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateFuelOn" message="tns:IEnginePLCService_UpdateFuelOn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManualStart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateManualStart" message="tns:IEnginePLCService_UpdateManualStart_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartSelectorCrank">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateStartSelectorCrank" message="tns:IEnginePLCService_UpdateStartSelectorCrank_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartSelectorNormal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateStartSelectorNormal" message="tns:IEnginePLCService_UpdateStartSelectorNormal_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartSelectorIgnitionStart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateStartSelectorIgnitionStart" message="tns:IEnginePLCService_UpdateStartSelectorIgnitionStart_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartMasterOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateStartMasterOn" message="tns:IEnginePLCService_UpdateStartMasterOn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIgnitionOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateIgnitionOn" message="tns:IEnginePLCService_UpdateIgnitionOn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIgnitionArmed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateIgnitionArmed" message="tns:IEnginePLCService_UpdateIgnitionArmed_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIgnitionOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateIgnitionOff" message="tns:IEnginePLCService_UpdateIgnitionOff_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroundPowerOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateGroundPowerOn" message="tns:IEnginePLCService_UpdateGroundPowerOn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEMUPowerOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateEMUPowerOn" message="tns:IEnginePLCService_UpdateEMUPowerOn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIsInFlight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateIsInFlight" message="tns:IEnginePLCService_UpdateIsInFlight_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHighIdle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateHighIdle" message="tns:IEnginePLCService_UpdateHighIdle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHydraulicPump1Fitted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateHydraulicPump1Fitted" message="tns:IEnginePLCService_UpdateHydraulicPump1Fitted_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHydraulicPump2Fitted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/UpdateHydraulicPump2Fitted" message="tns:IEnginePLCService_UpdateHydraulicPump2Fitted_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearStartReadings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/ClearStartReadings" message="tns:IEnginePLCService_ClearStartReadings_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearStopReadings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEnginePLCService/ClearStopReadings" message="tns:IEnginePLCService_ClearStopReadings_InputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tcp" type="tns:IEnginePLCService">
+    <wsp:PolicyReference URI="#tcp_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/udp" />
+    <wsdl:operation name="UpdateFuelOn">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateFuelOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManualStart">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateManualStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartSelectorCrank">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateStartSelectorCrank" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartSelectorNormal">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateStartSelectorNormal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartSelectorIgnitionStart">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateStartSelectorIgnitionStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStartMasterOn">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateStartMasterOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIgnitionOn">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateIgnitionOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIgnitionArmed">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateIgnitionArmed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIgnitionOff">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateIgnitionOff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroundPowerOn">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateGroundPowerOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEMUPowerOn">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateEMUPowerOn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIsInFlight">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateIsInFlight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHighIdle">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateHighIdle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHydraulicPump1Fitted">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateHydraulicPump1Fitted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHydraulicPump2Fitted">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/UpdateHydraulicPump2Fitted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClearStartReadings">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/ClearStartReadings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClearStopReadings">
+      <soap12:operation soapAction="http://tempuri.org/IEnginePLCService/ClearStopReadings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnginePLCService">
+    <wsdl:port name="tcp" binding="tns:tcp">
+      <soap12:address location="soap.udp://scottsurface4:10001/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>soap.udp://scottsurface4:10001/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

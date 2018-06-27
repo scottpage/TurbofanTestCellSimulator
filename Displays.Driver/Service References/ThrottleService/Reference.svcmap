@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="22553be1-a778-4be3-979a-de19061b1089" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:20013/ThrottleService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="6237c68c-d2bc-4a87-86b4-9bfaf465e0f9" SourceId="1" SourceUrl="http://localhost:20013/ThrottleService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="90b8aed8-1920-455c-b5e3-fbbbf9fd895e" SourceId="1" SourceUrl="http://localhost:20013/ThrottleService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="c3d0620b-5ba2-4bb0-90f6-df8189885b85" SourceId="1" SourceUrl="http://localhost:20013/ThrottleService/mex" />
+    <MetadataFile FileName="ScottPage.RollsRoyce.TestCellSimulator.Simulation.Models.xsd" MetadataType="Schema" ID="6280cdcf-0ae4-49f4-9f89-fed3269cc6c9" SourceId="1" SourceUrl="http://localhost:20013/ThrottleService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

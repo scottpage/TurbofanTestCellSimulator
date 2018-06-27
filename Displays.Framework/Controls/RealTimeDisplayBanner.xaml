@@ -1,0 +1,59 @@
+﻿<UserControl
+    x:Class="RealTimeDisplayBanner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    d:DesignHeight="67"
+    d:DesignWidth="597"
+    Background="Black"
+    xmlns:my="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="0.25*" />
+            <ColumnDefinition />
+            <ColumnDefinition
+                Width="0.25*" />
+        </Grid.ColumnDefinitions>
+        <Border
+            BorderBrush="White"
+            BorderThickness="1"
+            Margin="10,0,0,0"
+            Height="23">
+            <TextBlock
+                Foreground="White"
+                Background="Gray"
+                Text="{Binding Path=CurrentDateTime, StringFormat={}{0:dd-MM-yyyy}}"
+                Padding="0"
+                FontSize="14"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                TextAlignment="Center" />
+        </Border>
+        <Viewbox
+            Grid.Column="1">
+            <TextBlock
+                x:Name="DisplayNameTextBlock"
+                Foreground="Silver"
+                Padding="2" />
+        </Viewbox>
+        <Border
+            BorderBrush="White"
+            BorderThickness="1"
+            Margin="0,0,10,0"
+            Grid.Column="2"
+            Height="23">
+            <TextBlock
+                Foreground="White"
+                Background="Gray"
+                Text="{Binding Path=CurrentDateTime, StringFormat={}{0:hh:mm:ss}}"
+                Padding="0"
+                FontSize="14"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                TextAlignment="Center" />
+        </Border>
+    </Grid>
+</UserControl>

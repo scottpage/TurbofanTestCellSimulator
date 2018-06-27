@@ -1,0 +1,24 @@
+﻿<Application x:Class="Application"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework;assembly=ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework"
+    ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush
+                x:Key="proDASScreenBackgroundColor">#FF5C5C5C</SolidColorBrush>
+            <Style
+                x:Key="proDASEllipseStyle"
+                TargetType="{x:Type Ellipse}">
+                <Setter
+                    Property="Stroke"
+                    Value="Silver" />
+                <Setter
+                    Property="StrokeThickness"
+                    Value="3" />
+            </Style>
+            <SolidColorBrush
+                x:Key="BlueBrushKey">#FF5A7394</SolidColorBrush>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

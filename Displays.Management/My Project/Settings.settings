@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestCellName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Stn-Bed01</Value>
+    </Setting>
+    <Setting Name="EngineTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TRENTXWB</Value>
+    </Setting>
+    <Setting Name="TestName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">82698</Value>
+    </Setting>
+    <Setting Name="TestStartDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">05/03/2012 07:47:00</Value>
+    </Setting>
+    <Setting Name="TestDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">06/14/2012 12:02:00</Value>
+    </Setting>
+    <Setting Name="AvailableTestEngineComments" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;**** ENGINE START ****&lt;/string&gt;
+  &lt;string&gt;**** ENGINE STOP ****&lt;/string&gt;
+  &lt;string&gt;On condition GI&lt;/string&gt;
+  &lt;string&gt;On condition &lt;/string&gt;
+  &lt;string&gt;On condition XX.X% NL&lt;/string&gt;
+  &lt;string&gt;On condition XXX.X NLRT120&lt;/string&gt;
+  &lt;string&gt;Accel to &lt;/string&gt;
+  &lt;string&gt;Accel to XX.X% NL&lt;/string&gt;
+  &lt;string&gt;Accel to XXX.X NLRT120&lt;/string&gt;
+  &lt;string&gt;Decel to GI&lt;/string&gt;
+  &lt;string&gt;Decel to &lt;/string&gt;
+  &lt;string&gt;Decel to XX.X% NL&lt;/string&gt;
+  &lt;string&gt;Decel to XXX.X NLRT120&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="TestDiaryEntries" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UELLogEntries" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

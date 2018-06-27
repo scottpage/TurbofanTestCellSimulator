@@ -1,0 +1,73 @@
+﻿<UserControl
+    x:Class="TwoStateStatusButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScottPage.RollsRoyce.TestCellSimulator.Displays"
+    mc:Ignorable="d"
+    d:DesignHeight="174"
+    d:DesignWidth="145"
+    Background="LightGray">
+    <Grid>
+        <Border
+            BorderThickness="5,5,0,0"
+            BorderBrush="{StaticResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+        <Border
+            BorderThickness="0,0,5,5"
+            BorderBrush="{StaticResource {x:Static SystemColors.ControlLightBrushKey}}" />
+        <Grid
+            Margin="10">
+            <Border
+                BorderThickness="5,5,0,0"
+                BorderBrush="{StaticResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+            <Border
+                BorderThickness="0,0,5,5"
+                BorderBrush="{StaticResource {x:Static SystemColors.ControlLightBrushKey}}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="0.4*" />
+                    <RowDefinition
+                        Height="0.6*" />
+                </Grid.RowDefinitions>
+                <Rectangle
+                    Grid.Row="0"
+                    Margin="5"
+                    Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=StatusLabelBackgroundBrush}" />
+                <UniformGrid
+                    Grid.Row="0"
+                    Margin="2"
+                    Rows="2"
+                    Columns="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Viewbox>
+                        <TextBlock
+                            Margin="2"
+                            Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=TopStatusText, FallbackValue=Top\ Status}" />
+                    </Viewbox>
+                    <Viewbox>
+                        <TextBlock
+                            Margin="2"
+                            Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=BottomStatusText, FallbackValue=Bottom\ Status}" />
+                    </Viewbox>
+                </UniformGrid>
+                <Rectangle
+                    Grid.Row="1"
+                    Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=ButtonBorderBrush}" />
+                <local:TwoStateButton
+                    Grid.Row="1"
+                    Margin="5"
+                    TopText="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=ButtonTopText}"
+                    BottomText="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=ButtonBottomText}"
+                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=Command}"
+                    IsIndicatorEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=IsButtonIndicatorEnabled}"
+                    IndicatorVisiblity="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=ButtonIndicatorVisiblity}"
+                    State="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=State}"
+                    IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:TwoStateStatusButton, AncestorLevel=1}, Path=IsEnabled}"
+                    DataContext="{Binding}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

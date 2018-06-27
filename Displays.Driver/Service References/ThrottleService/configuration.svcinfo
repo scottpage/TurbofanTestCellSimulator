@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.UdpBindingElement, System.ServiceModel.Channels, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;tcp1&quot; /&gt;" bindingType="udpBinding" name="tcp1" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;soap.udp://scottsurface4:10003/&quot; binding=&quot;udpBinding&quot; bindingConfiguration=&quot;tcp1&quot; contract=&quot;ThrottleService.IThrottleService&quot; name=&quot;tcp1&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;soap.udp://scottsurface4:10003/&quot; binding=&quot;udpBinding&quot; bindingConfiguration=&quot;tcp1&quot; contract=&quot;ThrottleService.IThrottleService&quot; name=&quot;tcp1&quot; /&gt;" contractName="ThrottleService.IThrottleService" name="tcp1" />
+  </endpoints>
+</configurationSnapshot>

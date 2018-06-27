@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ScottPage.RollsRoyce.TestCellSimulator.Displays.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ScottPage.RollsRoyce.TestCellSimulator.Displays.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Severity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Information" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Critical" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Severity" nillable="true" type="tns:Severity" />
+</xs:schema>

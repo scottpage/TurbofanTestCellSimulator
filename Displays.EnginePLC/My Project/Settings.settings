@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="EngineStartVideoFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start.wmv</Value>
+    </Setting>
+    <Setting Name="EngineIdleVideoFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Idle.wmv</Value>
+    </Setting>
+    <Setting Name="EngineShutdownVideoFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Shutdown.wmv</Value>
+    </Setting>
+    <Setting Name="EngineStoppedVideoFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Stopped.wmv</Value>
+    </Setting>
+    <Setting Name="PrestartStartIdleVideoFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PrestartStartIdle.wmv</Value>
+    </Setting>
+    <Setting Name="BaseVideoPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\scott\Google Drive\Test Cell Simulator\Videos</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
