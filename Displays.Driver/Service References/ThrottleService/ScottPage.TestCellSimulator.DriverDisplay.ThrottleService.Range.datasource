@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Range" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ScottPage.TestCellSimulator.DriverDisplay.ThrottleService.Range, DriverDisplay, Version=1.0.6286.25357, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>ScottPage.TestCellSimulator.DriverDisplay.ThrottleService.Range, Service References.ThrottleService.Reference.vb.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

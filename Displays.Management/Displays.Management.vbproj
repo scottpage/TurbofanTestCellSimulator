@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ScottPage.RollsRoyce.TestCellSimulator.ManagementDisplay</RootNamespace>
     <AssemblyName>ManagementDisplay</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <MyType>Custom</MyType>
@@ -59,6 +59,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xaml">
@@ -335,6 +336,10 @@
     <Resource Include="Images\TestEnginePage.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WPFCommon\WPF.Common.vbproj">
+      <Project>{aec54a98-71fb-4bec-8aae-073be87f0769}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Displays.Services\Displays.Services.vbproj">
       <Project>{058CC6AC-14A4-4199-9D36-0043077DA1F2}</Project>
       <Name>Displays.Services</Name>

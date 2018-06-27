@@ -390,8 +390,8 @@ Namespace SimulationStateService
                 Return Me.IsHydraulicPump1NotFittedField
             End Get
             Set
-                If (Me.IsHydraulicPump1NotFittedField.Equals(Value) <> True) Then
-                    Me.IsHydraulicPump1NotFittedField = Value
+                If (Me.IsHydraulicPump1NotFittedField.Equals(value) <> true) Then
+                    Me.IsHydraulicPump1NotFittedField = value
                     Me.RaisePropertyChanged("IsHydraulicPump1NotFitted")
                 End If
             End Set

@@ -13,7 +13,7 @@
     <AssemblyName>Simulation</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -51,6 +51,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -168,6 +169,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WPFCommon\WPF.Common.vbproj">
+      <Project>{aec54a98-71fb-4bec-8aae-073be87f0769}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Simulation.Models\Simulation.Models.vbproj">
       <Project>{5F121622-23FB-415D-8713-EF83B93EC590}</Project>
       <Name>Simulation.Models</Name>

@@ -7,7 +7,7 @@
     <RootNamespace>ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework</RootNamespace>
     <AssemblyName>ScottPage.RollsRoyce.TestCellSimulator.Displays.Framework</AssemblyName>
     <OutputType>Library</OutputType>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <MyType>Custom</MyType>
     <ProjectGuid>{68ECCDE0-F914-4ED0-82A6-7F1D6D9EABEC}</ProjectGuid>
@@ -52,6 +52,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Discovery" />
     <Reference Include="System.Xml.Linq" />
@@ -191,6 +192,10 @@
     <Resource Include="Resources\Icons\LinearGauge.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WPFCommon\WPF.Common.vbproj">
+      <Project>{aec54a98-71fb-4bec-8aae-073be87f0769}</Project>
+      <Name>WPF.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Displays.Services\Displays.Services.vbproj">
       <Project>{058CC6AC-14A4-4199-9D36-0043077DA1F2}</Project>
       <Name>Displays.Services</Name>
